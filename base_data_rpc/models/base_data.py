@@ -46,6 +46,7 @@ class RPCBaseDataLine(models.Model):
     fields_id = fields.Many2one(comodel_name='ir.model.fields', string=u'字段', required=True)
     name = fields.Char(string=u'字段名')
     desc = fields.Char(string=u'摘要')
+    ttype = fields.Selection(selection='_get_field_types', string=u'字段类型', required=True)
     primary_key = fields.Boolean(string=u'唯一主键')
     rpc_id = fields.Many2one(comodel_name='rpc.base.data', string=u'同步数据表', ondelete='cascade')
 
@@ -59,6 +60,11 @@ class RPCBaseDataLine(models.Model):
         if self.fields_id:
             self.name = self.fields_id.name
             self.desc = self.fields_id.field_description
+            self.ttype = self.fields_id.ttype
+
+    @api.model
+    def _get_field_types(self):
+        return sorted((key, key) for key in fields.MetaField.by_type)
 
 
 class RPCBaseDataDomain(models.Model):

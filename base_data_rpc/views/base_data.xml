@@ -41,6 +41,7 @@
                                         <field name="fields_id"/>
                                         <field name="name"/>
                                         <field name="desc"/>
+                                        <field name="ttype"/>
                                         <field name="primary_key"/>
                                     </tree>
                                 </field>
