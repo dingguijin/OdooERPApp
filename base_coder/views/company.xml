@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--扩展合作伙伴tree-->
+        <record id="inherit_company_tree" model="ir.ui.view">
+            <field name="name">inherit company</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- 扩展合作伙伴form -->
+        <record id="inherit_company_form" model="ir.ui.view">
+            <field name="name">inherit company</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='website']" position="after">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_company_tree_mulit" model="ir.ui.view">
+            <field name="name">partner company</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="parent_id" groups="base.group_multi_company"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

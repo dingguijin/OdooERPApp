@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+		<!-- 创建群组 用户 类型 -->
+		<record id="group_multi_user" model="res.groups">
+			<field name="name">多维用户</field>
+		</record>
+
+		<record id="group_single_user" model="res.groups">
+			<field name="name">单维用户</field>
+		</record>
+    </data>
+</odoo>
