@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="database_expired.database_expired_data1" model="ir.config_parameter">
+        <field name="value">2099-12-31 01:44:14</field>
+        <field name="key">database.expiration_date</field>
+    </record>
+
+    <record id="database_expired.database_expired_data2" model="ir.config_parameter">
+        <field name="value">all</field>
+        <field name="key">database.expiration_reason</field>
+    </record>
+
+</odoo>
+
