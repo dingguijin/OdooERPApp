@@ -20,7 +20,9 @@
                   id="base_data_rpc.dash_board_menu"
                   parent="base_data_rpc.main_menu"
                   sequence="1"
-                  action="base_data_rpc.dash_board_client"/>
+                  action="base_data_rpc.dash_board_client"
+                  groups="base_data_rpc.user"
+        />
 
     </data>
 </odoo>

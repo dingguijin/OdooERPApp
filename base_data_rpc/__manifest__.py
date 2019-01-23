@@ -13,6 +13,7 @@
     'auto_install': False,
     'data': [
         'security/ir.model.access.csv',
+        'groups/rpc_groups.xml',
         'views/menu.xml',
         'views/dash_board.xml',
         'views/base_config.xml',

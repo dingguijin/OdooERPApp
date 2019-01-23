@@ -44,6 +44,7 @@
     <menuitem id="base_data_rpc.rpc_data_synchronization_menu"
               name="数据同步-读取"
               parent="base_data_rpc.synchronization_menu"
+              groups="base_data_rpc.user"
               sequence="1"
               action="base_data_rpc.rpc_data_synchronization_action"/>
 

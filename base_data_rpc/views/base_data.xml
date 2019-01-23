@@ -63,7 +63,8 @@
         <menuitem id="base_data_rpc.rpc_base_data_menu" name="同步数据表设置"
                   parent="base_data_rpc.configure_menu"
                   sequence="2"
-                  action="base_data_rpc.rpc_base_data_action"/>
+                  action="base_data_rpc.rpc_base_data_action"
+                  groups="base_data_rpc.user"/>
 
 
     </data>

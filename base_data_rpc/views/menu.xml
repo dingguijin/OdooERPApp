@@ -11,6 +11,5 @@
         <menuitem name="配置项" id="base_data_rpc.configure_menu"
                   parent="base_data_rpc.main_menu" sequence="100"/>
 
-
     </data>
 </odoo>

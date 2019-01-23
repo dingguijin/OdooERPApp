@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record model="ir.module.category" id="base_data_rpc.main">
+			<field name="name">RPC操作权限</field>
+			<field name="visible" eval="0" />
+		</record>
+
+		<record id="base_data_rpc.user" model="res.groups">
+			<field name="name">用户</field>
+			<field name="category_id" ref="base_data_rpc.main" />
+		</record>
+
+		<record id="base_data_rpc.controller" model="res.groups">
+			<field name="name">管理员</field>
+			<field name="category_id" ref="base_data_rpc.main"/>
+			<field name="implied_ids" eval="[(4, ref('base_data_rpc.user'))]"/>
+		</record>
+
+	</data>
+</odoo>

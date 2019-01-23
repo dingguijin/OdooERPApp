@@ -33,6 +33,7 @@
         <menuitem id="base_data_rpc.rpc_base_config_settings"
                   name="基础配置"
                   parent="base_data_rpc.configure_menu"
+                  groups="base_data_rpc.controller"
                   sequence="1"
                   action="base_data_rpc.rpc_base_config_action"/>
 
