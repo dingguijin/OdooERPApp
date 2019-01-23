@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="base_data_rpc.rpc_data_synchronization_form_view" model="ir.ui.view">
+        <field name="name">数据同步-读取</field>
+        <field name="model">rpc.data.synchronization</field>
+        <field name="arch" type="xml">
+            <form string="project">
+                <p class="oe_grey">
+                    请选择数据-读取的数据表，点击开始后系统将从远成地址中获取指定的字段...
+                </p>
+                <p class="oe_grey">
+                    操作时间取决于数据的大小，请耐心等待...
+                </p>
+                <group class="alert alert-success">
+                    <group>
+                        <field name="repeat_type" placeholder="请选择重复处理方式"/>
+                    </group>
+                    <group>
+                        <field name="rpc_data" placeholder="请选择要同步的数据表"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="开始同步"
+                            name="start_synchronization"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="取消" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="base_data_rpc.rpc_data_synchronization_action" model="ir.actions.act_window">
+        <field name="name">数据同步-读取</field>
+        <field name="res_model">rpc.data.synchronization</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base_data_rpc.rpc_data_synchronization_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="base_data_rpc.rpc_data_synchronization_menu"
+              name="数据同步-读取"
+              parent="base_data_rpc.synchronization_menu"
+              sequence="1"
+              action="base_data_rpc.rpc_data_synchronization_action"/>
+
+
+</odoo>

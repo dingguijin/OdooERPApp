@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rpc_base_data,rpc.base.data,model_rpc_base_data,base.group_user,1,1,1,1
+access_rpc_base_data_line,rpc.base.data.line,model_rpc_base_data_line,base.group_user,1,1,1,1
+access_rpc_base_data_domain,rpc.base.data.domain,model_rpc_base_data_domain,base.group_user,1,1,1,1
+

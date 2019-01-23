@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem name="RPC数据同步"
+                  id="base_data_rpc.main_menu"
+                  web_icon="base_data_rpc,static/description/icon.png"
+        />
+
+        <menuitem name="仪表盘" id="base_data_rpc.dash_board_menu"
+                  parent="base_data_rpc.main_menu" sequence="1"/>
+
+        <menuitem name="同步数据" id="base_data_rpc.synchronization_menu"
+                  parent="base_data_rpc.main_menu" sequence="3"/>
+
+        <menuitem name="配置项" id="base_data_rpc.configure_menu"
+                  parent="base_data_rpc.main_menu" sequence="100"/>
+
+
+    </data>
+</odoo>

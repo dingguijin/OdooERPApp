@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="base_data_rpc.rpc_base_data_tree_view" model="ir.ui.view">
+            <field name="name">同步数据表设置</field>
+            <field name="model">rpc.base.data</field>
+            <field name="arch" type="xml">
+                <tree default_order="id desc" create="true">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="model_name"/>
+                    <field name="field_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="base_data_rpc.rpc_base_data_form_view" model="ir.ui.view">
+            <field name="name">同步数据表设置</field>
+            <field name="model">rpc.base.data</field>
+            <field name="arch" type="xml">
+                <form string="同步数据表设置">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="model_id"/>
+                            </group>
+                            <group>
+                                <field name="model_name"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="同步字段列表">
+                                <field name="field_ids" mdel="tree" context="{'model_id': model_id}" nolabel="1">
+                                    <tree editable="top">
+                                        <field name="fields_id"/>
+                                        <field name="name"/>
+                                        <field name="desc"/>
+                                        <field name="primary_key"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="过滤规则条件">
+                                <field name="domain_ids" mdel="tree">
+                                    <tree editable="top">
+                                        <field name="name" placeholder="若需要条件过滤则输入条件表达式！如['name', '=', 'admin']"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="base_data_rpc.rpc_base_data_action">
+            <field name="name">同步数据表设置</field>
+            <field name="res_model">rpc.base.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="base_data_rpc.rpc_base_data_menu" name="同步数据表设置"
+                  parent="base_data_rpc.configure_menu"
+                  sequence="2"
+                  action="base_data_rpc.rpc_base_data_action"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="base_data_rpc.rpc_base_config_configuration" model="ir.ui.view">
+            <field name="name">rpc.base.config.view</field>
+            <field name="model">rpc.base.config</field>
+            <field name="arch" type="xml">
+                <form string="设置" class="oe_form_configuration">
+                    <header>
+                        <button string="应用" type="object" name="execute" class="oe_highlight"/>
+                        <button string="取消" type="object" name="cancel" class="oe_link" special="cancel"/>
+                    </header>
+                    <group string="基础配置">
+                        <group>
+                            <field name="rpc_url" />
+                            <field name="rpc_db" />
+                            <field name="username"/>
+                            <field name="password"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="base_data_rpc.rpc_base_config_action" model="ir.actions.act_window">
+            <field name="name">基础配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rpc.base.config</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="base_data_rpc.rpc_base_config_settings"
+                  name="基础配置"
+                  parent="base_data_rpc.configure_menu"
+                  sequence="1"
+                  action="base_data_rpc.rpc_base_config_action"/>
+
+    </data>
+</odoo>
