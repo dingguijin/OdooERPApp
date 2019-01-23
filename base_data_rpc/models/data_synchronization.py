@@ -38,6 +38,10 @@ class DataSynchronization(models.TransientModel):
             domain.append(rpc.string_transfer_list(d.name))
         logging.info(u"数据表过滤表达式:{}".format(domain))
         result = rpc.search_read(model, rpc_db, uid, password, model_name, domain, fields_dict)
+        # 检查数据存放方式（如果为分开存放，则检查分卡存放的模型和字段是否存在）
+        if rpc_data.local_table == '01':
+            self.checkout_local_model(rpc_data.local_table_name, rpc_data)
+            model_name = rpc_data.local_table_name
         # 将结果写入到本地数据库
         self.processing_results(model_name, result)
 
@@ -50,14 +54,15 @@ class DataSynchronization(models.TransientModel):
         return {'fields': field_arr}
 
     @api.multi
-    def processing_results(self,model_name, result):
+    def processing_results(self, model_name, result):
         """根据返回的结果写入本地数据库
         :param model_name: 数据表模型名
         :param result: 返回结果list
         """
         logging.info(u"本次共返回{}条返回的数据！".format(len(result)))
         # 获取主键字段
-        data_line = self.env['rpc.base.data.line'].search([('rpc_id', '=', self.rpc_data.id), ('primary_key', '=', True)])
+        data_line = self.env['rpc.base.data.line'].search(
+            [('rpc_id', '=', self.rpc_data.id), ('primary_key', '=', True)])
         if not data_line:
             raise UserError(u"未配置字段主键！请维护")
         primary_key = data_line.name
@@ -76,5 +81,26 @@ class DataSynchronization(models.TransientModel):
             else:
                 logging.info(u"数据>>:{}不存在，系统将主动创建！".format(res.get(primary_key)))
                 self.env[model_name].sudo().create(res)
+        return True
+
+    @api.model
+    def checkout_local_model(self, model_name, rpc_data):
+        """检查本地模型
+        :param model_name: 本地模型名称
+        :param rpc_data: 选择的数据表
+        :return boolean: 返回true or false
+        """
+        model = self.env['ir.model'].sudo().search([('model', '=', model_name)])
+        if not model:
+            msg = u"本地模型:'{}'不存在,请检查！".format(model_name)
+            logging.info(msg)
+            raise UserError(msg)
+        # 检查模型中字段是否相存在
+        for field in rpc_data.field_ids:
+            f = self.env['ir.model.fields'].sudo().search([('model_id', '=', model.id), ('name', '=', field.name)])
+            if not f:
+                msg = u"本地模型:'{}'中字段'{}'不存在,请检查！".format(model_name, field.name)
+                logging.info(msg)
+                raise UserError(msg)
         return True
 

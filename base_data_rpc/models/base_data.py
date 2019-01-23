@@ -14,6 +14,10 @@ class RPCBaseData(models.Model):
     name = fields.Char(string=u'名称', required=True)
     model_id = fields.Many2one(comodel_name='ir.model', string=u'模型', required=True)
     model_name = fields.Char(string=u'模型名称')
+    local_table = fields.Selection(string=u'本地数据表',
+                                   selection=[('00', u'模型一致'), ('01', u'分开存放'), ],
+                                   default='00', required=True)
+    local_table_name = fields.Char(string=u'存放模型名')
     field_ids = fields.One2many(comodel_name='rpc.base.data.line', inverse_name='rpc_id', string=u'字段列表')
     domain_ids = fields.One2many(comodel_name='rpc.base.data.domain', inverse_name='rpc_id', string=u'过滤规则')
 
