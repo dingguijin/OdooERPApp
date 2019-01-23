@@ -1,3 +1,32 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Windows template
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+.DS_Store
+.gitignore.orig
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+myaddons/disable_enterprise_online
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -17,7 +46,16 @@ eggs/
 lib/
 lib64/
 parts/
+aaschina/
+Cache/
 sdist/
+Source/
+extend/
+customerext/
+demo/
+*.conf
+runtime/
+*.bat
 var/
 wheels/
 *.egg-info/
@@ -102,3 +140,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
