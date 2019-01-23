@@ -14,11 +14,12 @@
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
+        'views/dash_board.xml',
         'views/base_config.xml',
         'views/base_data.xml',
         'views/data_synchronization.xml',
     ],
-    'demo': [
-
+    'qweb': [
+        'static/src/xml/dash_board.xml',
     ],
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+     <t t-name="BaseRPCDashBoard">
+         <div style="background: white;">
+             <p>hello!</p>
+          </div>
+     </t>
+
+</templates>
+
+
+
+
+
