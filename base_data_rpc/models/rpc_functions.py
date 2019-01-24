@@ -58,7 +58,7 @@ def search_read(models, rpc_db, uid, pwd, model_name, domain, fields_dict):
     try:
         return models.execute_kw(rpc_db, uid, pwd, model_name, 'search_read', [domain], fields_dict)
     except Exception as e:
-        logging.info(u"获取指定数据表数据时发生错误！特别注意条件规则表达式,\r\n具体错误原因:{}".format(e))
+        logging.info(u"获取指定数据表数据时发生错误！特别注意条件规则表达式,具体错误原因:{}".format(e))
         raise UserError(u"获取指定数据表数据时发生错误！特别注意条件规则表达式,\r\n具体错误原因:{}".format(e))
 
 

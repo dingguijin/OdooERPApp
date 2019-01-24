@@ -18,6 +18,7 @@ class RPCBaseData(models.Model):
                                    selection=[('00', u'模型一致'), ('01', u'分开存放'), ],
                                    default='00', required=True)
     local_table_name = fields.Char(string=u'存放模型名')
+    connection_relation = fields.Boolean(string=u'解决关联关系', default=False, help=u"当字段中存在关联表单时，自动建立关系表")
     field_ids = fields.One2many(comodel_name='rpc.base.data.line', inverse_name='rpc_id', string=u'字段列表')
     domain_ids = fields.One2many(comodel_name='rpc.base.data.domain', inverse_name='rpc_id', string=u'过滤规则')
 
@@ -30,6 +31,8 @@ class RPCBaseData(models.Model):
     def constrains_field_ids(self):
         """ 判断字段列表中主键是否只有一个 """
         for res in self:
+            if res.ttype == 'many2one' or res.ttype == 'many2many' or res.ttype == 'one2many':
+                raise UserError(u"目前暂不支持类型为：many2one、many2many、one2many的字段同步")
             f_number = 0
             for field in res.field_ids:
                 if field.primary_key:
