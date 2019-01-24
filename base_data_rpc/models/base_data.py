@@ -31,10 +31,10 @@ class RPCBaseData(models.Model):
     def constrains_field_ids(self):
         """ 判断字段列表中主键是否只有一个 """
         for res in self:
-            if res.ttype == 'many2one' or res.ttype == 'many2many' or res.ttype == 'one2many':
-                raise UserError(u"目前暂不支持类型为：many2one、many2many、one2many的字段同步")
             f_number = 0
             for field in res.field_ids:
+                if field.ttype == 'many2one' or field.ttype == 'many2many' or field.ttype == 'one2many':
+                    raise UserError(u"目前暂不支持类型为：many2one、many2many、one2many的字段同步")
                 if field.primary_key:
                     f_number += 1
             if f_number != 1:
