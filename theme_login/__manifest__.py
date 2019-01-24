@@ -10,7 +10,7 @@
     'depends': ['base'],
     'data': [
         'data/ir_config_parameter.xml',
-        'views/webclient_templates.xml',
+        'views/login_templates.xml',
     ],
     'installable': True,
     'application': True,
