@@ -1,0 +1,20 @@
+
+/*修改菜单栏颜色*/
+.o_main_navbar {
+	background-color: #047F64 !important;
+	border-color: #047F64 !important;
+}
+
+/*更换odoo10主界面背景图*/
+.o_application_switcher {
+	background: url(/mytheme/static/image/odoo_bg.jpg) no-repeat !important;
+	background-size: 100% !important;
+}
+
+/*隐藏odoo标志logo*/
+.o_application_switcher_footer{
+	display: none !important;
+}
+
+
+
