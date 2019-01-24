@@ -7,7 +7,7 @@
 
 /*更换odoo10主界面背景图*/
 .o_application_switcher {
-	background: url(/mytheme/static/image/odoo_bg.jpg) no-repeat !important;
+	background: url(/definition_theme/static/image/odoo_bg.jpg) no-repeat !important;
 	background-size: 100% !important;
 }
 

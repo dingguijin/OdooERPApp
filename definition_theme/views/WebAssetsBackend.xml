@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 	<data noupdate="1">
-		<template id="mysdsd_sds_assets_backend" name="My Module CSS Assets" inherit_id="web.assets_backend">
+		<template id="definition_theme_css" name="My Module CSS Assets" inherit_id="web.assets_backend">
 			<xpath expr=". " position="inside">
-				<link rel="stylesheet" href="/mytheme/static/src/css/website.assets_backend.css" />
+				<link rel="stylesheet" href="/definition_theme/static/src/css/website.assets_backend.css" />
 			</xpath>
 		</template>
 	</data>
