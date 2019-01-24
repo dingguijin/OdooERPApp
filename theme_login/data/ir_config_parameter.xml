@@ -13,7 +13,7 @@
         
         <record id="login_form_background_default" model="ir.config_parameter">
             <field name="key">login_form_background_default</field>
-            <field name="value">/theme_login/static/src/img/bg2.jpg</field>
+            <field name="value">/theme_login/static/src/img/bg5.jpg</field>
         </record>
 
         <record id="login_form_background_dawn" model="ir.config_parameter">

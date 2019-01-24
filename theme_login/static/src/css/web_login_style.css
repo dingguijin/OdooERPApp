@@ -64,7 +64,7 @@ body, html {
 	border-right: 0px;
 	border-bottom: 1px solid #CCC;
 	border-radius: 0px;
-	color: #de3907;
+	color: #ffffff;
 	font-size: 18px;
 	font-weight: 300;
 	transition: border-color 0.7s ease;
@@ -116,4 +116,8 @@ a.btn-select:hover {
 .oe_login_buttons {
 	margin-top: 30px;
 	margin-bottom: 10px;
+}
+
+.login_div {
+	background-image: linear-gradient(to right ,#4CD98E ,#DFD6F5);
 }

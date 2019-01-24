@@ -11,7 +11,6 @@
     'data': [
         'data/ir_config_parameter.xml',
         'views/webclient_templates.xml',
-        'views/website_templates.xml',
     ],
     'installable': True,
     'application': True,
