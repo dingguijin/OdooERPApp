@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="base_data_rpc.rpc_data_uploading_form_view" model="ir.ui.view">
+        <field name="name">数据同步-上传</field>
+        <field name="model">rpc.data.uploading</field>
+        <field name="arch" type="xml">
+            <form string="project">
+                <p class="oe_grey">
+                    请选择数据-上传的数据表，点击开始后系统将从本地获取指定的字段上传到接口对应模型...
+                </p>
+                <p class="oe_grey">
+                    操作时间取决于数据的大小，请耐心等待...
+                </p>
+                <group class="alert alert-success">
+                    <group>
+                        <field name="rpc_data" placeholder="请选择要同步的数据表"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="开始同步"
+                            name="start_uploading"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="取消" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="base_data_rpc.rpc_data_uploading_action" model="ir.actions.act_window">
+        <field name="name">数据同步-上传</field>
+        <field name="res_model">rpc.data.uploading</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base_data_rpc.rpc_data_uploading_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="base_data_rpc.rpc_data_uploading_menu"
+              name="数据同步-上传"
+              parent="base_data_rpc.synchronization_menu"
+              groups="base_data_rpc.user"
+              sequence="2"
+              action="base_data_rpc.rpc_data_uploading_action"/>
+
+
+</odoo>
